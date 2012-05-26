@@ -1,0 +1,121 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Lalo.li - Short Voice Message Service </title>
+  <script>
+  </script>
+  <style>
+  body {  font-size: 14px;
+  line-height: 21px;
+  color: #333;
+  background: #f6f6f6;
+  font-family: "Helvetica Neue", "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif !important;
+  margin: 10px;
+  font-color: black;
+  }
+  .controll {display: inline-block; margin: 5px;}
+  .lable {text-align:center; width: 75px;}
+  .text {  }
+
+
+input, textarea {
+	padding: 9px;
+	border: solid 1px #E5E5E5;
+	outline: 0;
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;
+	/*width: 200px;*/
+	background: #FFFFFF left top repeat-x;
+	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+	background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	}
+
+textarea {
+	width: 400px;
+	max-width: 400px;
+	height: 150px;
+	line-height: 150%;
+	}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+	border-color: #C9C9C9;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+	}
+
+.form label {
+	margin-left: 10px;
+	color: #999999;
+	}
+
+.submit input {
+	width: auto;
+	padding: 9px 15px;
+	background: #617798;
+	border: 0;
+	font-size: 14px;
+	color: #FFFFFF;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	}
+
+  #text {margin-top: 1px; margin-bottom: 15px;}
+  
+  h1 {margin-top: 15px;} 
+  .la { color:blue; }
+  .lo { color:green; }
+  .dot { color:orange; }
+  .li { color:magenta; }
+
+ .dial {cursor:pointer;}
+ .controll  {cursor:pointer;}
+.lable {font-size:0.85em; cursor:default;}
+
+ #textstuff { font-size:0.85em; }
+ 
+  </style>
+
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+  <script>window.jQuery || document.write('<script src="lib/vendor/jquery-1.7.2.min.js"><\/script>')</script>
+  <script src="lib/knob/jquery.knob.js"></script>
+</head>
+<body>
+  <center>
+  <h1><span class="la">La</span><span class='lo'>lo</span><span class='dot'>.</span><span class='li'>li</span></h1>
+  <h2>Short Voice Message Service</h2>
+  <form noonsubmit="return false;" id="speak"> 
+    <div id="text_controll"><input type="text" name="text" id="text" size=50 value="Please enter your message." maxlength="140" ><input type="submit" value="▶"><!--♫--></div>
+    <div id="controllarea">
+      <div id="amplitude_controll" class="controll" ><input type="text" name="amplitude" id="amplitude" size=5 value="100" class="dial" data-min="0" data-max="200" data-width='75' data-fgColor='blue' ><div class="lable">Amplitude</div></div>
+    
+      <div id="pitch_controll" class="controll"><input type="text" name="pitch" id="pitch" size=5 value="50" class="dial" data-min="0" data-max="100" data-width='75'  data-fgColor='green' ><div class="lable">Pitch</div></div>
+    
+
+      <div id="speed_controll" class="controll" ><input type="text" name="speed" id="speed" size=5 value="175" class="dial" data-min="0" data-max="300" data-width='75'  data-fgColor='orange'><div class="lable">Speed</div></div>
+    
+      <div id="wordgap_controll" class="controll" ><input type="text" name="wordgap" id ="wordgap"size=5 value="2" class="dial" data-min="0" data-max="20" data-width='75'  data-fgColor='magenta'><div class="lable">Word Gap</div></div>
+    </div>
+    
+    
+  </form>
+    <div id="textstuff">Copy & paste the URL from the adressbar to share your message.
+    <br>
+      - or -
+    <br>
+    Share your message on Twitter, Facebook and even Google+.
+    <br>&nbsp;<br>
+    100% client side - By Franz Enzenhofer (@enzenhofer) - F&#10047;rk on Github.
+    </div>
+  <div id="audio"></div>
+  </center>
+  <script src="lib/speak/speakClient.js"></script>
+      <script type="text/javascript" src="lib/vendor/base64.js" async></script>
+    <script type="text/javascript" src="lib/vendor/rawinflate.js" async></script>
+    <script type="text/javascript" src="lib/vendor/rawdeflate.js" async></script>
+  <script src="lib/main.js"></script>
+  
+</body>
+</html>
