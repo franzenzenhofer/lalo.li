@@ -2,9 +2,13 @@
 
 <head>
   <meta charset="utf-8">
+  <!--<link href="http://www.lalo.li/" rel="canonical">
+  <meta property="og:url" content="http://www.lalo.li/" /> -->
+<meta property="og:title" content="Voice Message" /> 
   <title>Lalo.li - Short Voice Message Service </title>
-  <script>
-  </script>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/style.css">
   <style>
   body {  font-size: 14px;
   line-height: 21px;
@@ -62,60 +66,174 @@ input:focus, textarea:focus {
 	-webkit-border-radius: 5px;
 	}
 
-  #text {margin-top: 1px; margin-bottom: 15px;}
+  #text {margin-top: 1px; margin-bottom: 15px; max-width: 480px; min-width: 200px; width:90%;}
   
   h1 {margin-top: 15px;} 
   .la { color:blue; }
   .lo { color:green; }
-  .dot { color:orange; }
+  .dot { color:FireBrick; }
   .li { color:magenta; }
 
- .dial {cursor:pointer;}
- .controll  {cursor:pointer;}
-.lable {font-size:0.85em; cursor:default;}
+ .dial {cursor:pointer !important; }
+ .controll  {cursor:pointer !important; }
+.lable {font-size:0.85em; cursor:default !important;}
+ #controllarea {}
 
  #textstuff { font-size:0.85em; }
+
+ #error { font-size:0.85em; border: 2px solid black; margin: 10px; width:auto; }
+
+
+.uibutton { 
+    position: relative; 
+    z-index: 1;
+    overflow: visible; 
+    display: inline-block; 
+    padding: 0.3em 0.6em 0.375em; 
+    border: 1px solid #999; 
+    border-bottom-color: #888;
+    margin: 0;
+    text-decoration: none; 
+    text-align: center;
+    font: bold 11px/normal 'lucida grande', tahoma, verdana, arial, sans-serif; 
+    white-space: nowrap; 
+    cursor: pointer; 
+    /* outline: none; */
+    color: #333; 
+    background-color: #eee;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f6f6), to(#e4e4e3));
+    background-image: -moz-linear-gradient(#f5f6f6, #e4e4e3);
+    background-image: -o-linear-gradient(#f5f6f6, #e4e4e3);
+    background-image: linear-gradient(#f5f6f6, #e4e4e3);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5f6f6', EndColorStr='#e4e4e3'); /* for IE 6 - 9 */
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
+    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
+    /* IE hacks */
+    zoom: 1; 
+    *display: inline; 
+}
+
+.uibutton:hover,
+.uibutton:focus,
+.uibutton:active {
+    border-color: #777 #777 #666;
+}
+
+.uibutton:active {
+    border-color: #aaa;
+    background: #ddd;
+    filter: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/* overrides extra padding on button elements in Firefox */
+.uibutton::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+
+
+.uibutton.confirm {
+    border-color: #29447e #29447e #1a356e;
+    color: #fff;
+    background-color: #5B74A8;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#637bad), to(#5872a7));
+    background-image: -moz-linear-gradient(#637bad, #5872a7);
+    background-image: -o-linear-gradient(#637bad, #5872a7);
+    background-image: linear-gradient(#637bad, #5872a7);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#637bad', EndColorStr='#5872a7'); /* for IE 6 - 9 */
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
+    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
+}
+
+.uibutton.confirm:active {
+    border-color: #29447E;
+    background: #4F6AA3;
+    filter: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+      #twitter {
+        display: inline;
+        padding: 2px 5px 2px 20px;
+        background: url('img/birdy.png') 1px center no-repeat;
+        border: 1px solid #ccc;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+ text-decoration:none;
+   color:black;
+  font-weight:bold;
+       
+      }
+
+    #gplus
+{
+ display: inline;
+        padding: 2px 5px 2px 20px;
+        background: url('img/gplus.png') 1px center no-repeat;
+        border: 0px solid #ccc;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+ text-decoration:none;
+   color:black;
+  font-weight:bold;
+}
+
  
   </style>
 
-  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
-  <script>window.jQuery || document.write('<script src="lib/vendor/jquery-1.7.2.min.js"><\/script>')</script>
-  <script src="lib/knob/jquery.knob.js"></script>
+
+
+<script type="text/javascript">
+var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-20774200-1"]);_gaq.push(["_trackPageview"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script>
 </head>
 <body>
   <center>
   <h1><span class="la">La</span><span class='lo'>lo</span><span class='dot'>.</span><span class='li'>li</span></h1>
   <h2>Short Voice Message Service</h2>
   <form noonsubmit="return false;" id="speak"> 
-    <div id="text_controll"><input type="text" name="text" id="text" size=50 value="Please enter your message." maxlength="140" ><input type="submit" value="▶"><!--♫--></div>
-    <div id="controllarea">
-      <div id="amplitude_controll" class="controll" ><input type="text" name="amplitude" id="amplitude" size=5 value="100" class="dial" data-min="0" data-max="200" data-width='75' data-fgColor='blue' ><div class="lable">Amplitude</div></div>
+    <div id="text_controll"><input type="text" name="text" id="text" value="" maxlength="140" ><input type="submit" value="▶"><!--♫--></div>
+    <div id="spinner"></div>
+    <div id="controllarea" style="visibility:hidden;">
+      <div id="amplitude_controll" class="controll" ><input type="text" name="amplitude" id="amplitude" size=5 value="100" class="dial" data-min="0" data-max="200" data-width='75' data-fgColor='blue'  nodata-cursor='pointer' data-displayPrevious=true ><div class="lable">Amplitude</div></div>
     
-      <div id="pitch_controll" class="controll"><input type="text" name="pitch" id="pitch" size=5 value="50" class="dial" data-min="0" data-max="100" data-width='75'  data-fgColor='green' ><div class="lable">Pitch</div></div>
+      <div id="pitch_controll" class="controll"><input type="text" name="pitch" id="pitch" size=5 value="50" class="dial" data-min="0" data-max="100" data-width='75'  data-fgColor='green' nodata-cursor='pointer' data-displayPrevious=true ><div class="lable">Pitch</div></div>
     
 
-      <div id="speed_controll" class="controll" ><input type="text" name="speed" id="speed" size=5 value="175" class="dial" data-min="0" data-max="300" data-width='75'  data-fgColor='orange'><div class="lable">Speed</div></div>
+      <div id="speed_controll" class="controll" ><input type="text" name="speed" id="speed" size=5 value="175" class="dial" data-min="0" data-max="300" data-width='75'  data-fgColor='FireBrick'  nodata-cursor='pointer' data-displayPrevious=true ><div class="lable">Speed</div></div>
     
-      <div id="wordgap_controll" class="controll" ><input type="text" name="wordgap" id ="wordgap"size=5 value="2" class="dial" data-min="0" data-max="20" data-width='75'  data-fgColor='magenta'><div class="lable">Word Gap</div></div>
+      <div id="wordgap_controll" class="controll" ><input type="text" name="wordgap" id ="wordgap"size=5 value="2" class="dial" data-min="0" data-max="20" data-width='75'  data-fgColor='magenta'  nodata-cursor='pointer' data-displayPrevious=true ><div class="lable">Word Gap</div></div>
     </div>
-    
+    <div id="error" style="display:none;"></div>
     
   </form>
     <div id="textstuff">Copy & paste the URL from the adressbar to share your message.
     <br>
       - or -
     <br>
-    Share your message on Twitter, Facebook and even Google+.
+    Share your message on <a href="http://twitter.com/intent/tweet" id="twitter" target="_blank">Twitter</a>, <a href="https://www.facebook.com/sharer.php" class="uibutton confirm" target='_blank' id="facebook" >Facebook</a>, <a href="javascript:var%20d=document,w=window,enc=encodeURIComponent,e=w.getSelection,k=d.getSelection,x=d.selection,s=(e?e():(k)?k():(x?x.createRange().text:0)),s2=((s.toString()=='')?s:('%22'+enc(s)+'%22')),f='http://bit.ly/',l=d.location,p='?v=3&u='+enc(l.href)%20+'&s='+enc(d.title)+'%20'+s2,u=f+p;try{if(!/^(.*\.)?tumblrzzz[^.]*$/.test(l.host))throw(0);tstbklt();}catch(z){a%20=function(){if(!w.open(u))l.href=u;};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();}void(0)">bit.ly</a> and even <a href="https://plus.google.com/share" id="gplus" target="_blank"></a>.
     <br>&nbsp;<br>
-    100% client side - By Franz Enzenhofer (@enzenhofer) - F&#10047;rk on Github.
+    100% Client Side - By <a href="https://www.google.com/search?q=franz+enzenhofer&pws=0">Franz Enzenhofer</a> (<a href="http://twitter.com/enzenhofer">@enzenhofer</a>) - F&#9825;rk on <a href="https://github.com/franzenzenhofer/lalo.li">Github</a>.
     </div>
   <div id="audio"></div>
   </center>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="lib/vendor/jquery-1.7.2.min.js"><\/script>')</script>
+  <!--<script src="lib/knob/jquery.knob.js"></script>
   <script src="lib/speak/speakClient.js"></script>
+        <script type="text/javascript" src="lib/vendor/json2.js" async></script>
       <script type="text/javascript" src="lib/vendor/base64.js" async></script>
     <script type="text/javascript" src="lib/vendor/rawinflate.js" async></script>
     <script type="text/javascript" src="lib/vendor/rawdeflate.js" async></script>
-  <script src="lib/main.js"></script>
+  <script src="lib/main.js?v=270520122151"></script>-->
+  <script src="lib/min.js"></script>
   
 </body>
 </html>
