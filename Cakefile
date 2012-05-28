@@ -9,16 +9,16 @@ _level SIMPLE_OPTIMIZATIONS --js lib/knob/jquery.knob.js lib/speak/speakClient.j
 
 
 task 'copy', 'copy to franzenzenhofer.github.com/', ->
-  exec 'cp /Users/franzseo/dev/laloli/index.html /Users/franzseo/dev/franzenzenhofer.github.com/index.html', (err, stdout, stderr) ->
+  exec 'cp -f /Users/franzseo/dev/laloli/index.html /Users/franzseo/dev/franzenzenhofer.github.com/index.html', (err, stdout, stderr) ->
     throw err if err
     console.log stdout + stderr
-  exec 'cp /Users/franzseo/dev/laloli/favicon.ico /Users/franzseo/dev/franzenzenhofer.github.com/favicon.ico', (err, stdout, stderr) ->
+  exec 'cp -f /Users/franzseo/dev/laloli/favicon.ico /Users/franzseo/dev/franzenzenhofer.github.com/favicon.ico', (err, stdout, stderr) ->
     throw err if err
     console.log stdout + stderr
-  exec 'cp /Users/franzseo/dev/laloli/lib/min.js /Users/franzseo/dev/franzenzenhofer.github.com/lib/min.js', (err, stdout, stderr) ->
+  exec 'cp -f /Users/franzseo/dev/laloli/lib/min.js /Users/franzseo/dev/franzenzenhofer.github.com/lib/min.js', (err, stdout, stderr) ->
     throw err if err
     console.log stdout + stderr
-  exec 'cp /Users/franzseo/dev/laloli/lib/speak/speakGenerator.js /Users/franzseo/dev/franzenzenhofer.github.com/lib/speak/speakGenerator.js', (err, stdout, stderr) ->
+  exec 'cp -f /Users/franzseo/dev/laloli/lib/speak/speakGenerator.js /Users/franzseo/dev/franzenzenhofer.github.com/lib/speak/speakGenerator.js', (err, stdout, stderr) ->
     throw err if err
     console.log stdout + stderr
   exec 'cp -R -f /Users/franzseo/dev/laloli/lib/speak  /Users/franzseo/dev/franzenzenhofer.github.com/lib/', (err, stdout, stderr) ->

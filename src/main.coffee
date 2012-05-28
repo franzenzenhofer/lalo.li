@@ -60,7 +60,7 @@ $ ->
         #SET the values from the data hash
     datahash = window.location.hash or window.location.search
     if datahash
-      encoded = datahash.replace(/^(#|\?)/, '')
+      encoded = decodeURIComponent(datahash.replace(/^(#|\?)/, ''))
       base64 = encoded[0..encoded.length - 2]
       check = parseInt(encoded[encoded.length - 1..encoded.length])
       unless check == checksum(base64)
@@ -119,11 +119,11 @@ $ ->
     $(".dial").trigger('configure', {'release':((v,ipt) ->makeSpeakHash();console.log('release in dial'))})
 
     #as the twitter intents URL does not like hash URL we implement a shitload of quer URLs handling
-    $("#twitter").on('click', ()-> @href='http://twitter.com/intent/tweet?text='+encodeURIComponent('Voice Message')+'&url=http://www.lalo.li/?'+(window.location.hash[1...] or window.location.search[1...]))
+    $("#twitter").on('click', ()-> @href='http://twitter.com/intent/tweet?text='+encodeURIComponent('Voice Message')+'&url=http://www.lalo.li/?'+encodeURIComponent(window.location.hash[1...] or window.location.search[1...]))
     #https://plusone.google.com/_/+1/confirm?hl=en&url=http://www.your-url/
-    $("#gplus").on('click', ()-> @href='https://plus.google.com/share?url=http://www.lalo.li/?'+(window.location.hash[1...] or window.location.search[1...]))
+    $("#gplus").on('click', ()-> @href='https://plus.google.com/share?url=http://www.lalo.li/?'+encodeURIComponent(window.location.hash[1...] or window.location.search[1...]))
     #https://www.facebook.com/sharer.php?u=[URL]&t=[TEXT]
-    $("#facebook").on('click', ()-> @href='https://www.facebook.com/sharer.php?u=http://www.lalo.li/?'+(window.location.hash[1...] or window.location.search[1...])+'&t='+encodeURIComponent('Voice Message'))
+    $("#facebook").on('click', ()-> @href='https://www.facebook.com/sharer.php?u=http://www.lalo.li/?'+encodeURIComponent(window.location.hash[1...] or window.location.search[1...])+'&t='+encodeURIComponent('Voice Message'))
 
     )
 
