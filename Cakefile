@@ -18,12 +18,15 @@ task 'copy', 'copy to franzenzenhofer.github.com/', ->
   exec 'cp /Users/franzseo/dev/laloli/lib/min.js /Users/franzseo/dev/franzenzenhofer.github.com/lib/min.js', (err, stdout, stderr) ->
     throw err if err
     console.log stdout + stderr
-  exec 'cp franzseo/dev/laloli/lib/speak/speakGenerator.js /Users/franzseo/dev/franzenzenhofer.github.comi/lib/speak/speakGenerator.js', (err, stdout, stderr) ->
+  exec 'cp /Users/franzseo/dev/laloli/lib/speak/speakGenerator.js /Users/franzseo/dev/franzenzenhofer.github.com/lib/speak/speakGenerator.js', (err, stdout, stderr) ->
     throw err if err
     console.log stdout + stderr
   exec 'cp -R -f /Users/franzseo/dev/laloli/lib/speak  /Users/franzseo/dev/franzenzenhofer.github.com/lib/', (err, stdout, stderr) ->
     throw err if err
     console.log stdout + stderr
   exec 'cp -R -f /Users/franzseo/dev/laloli/img /Users/franzseo/dev/franzenzenhofer.github.com/', (err, stdout, stderr) ->
+    throw err if err
+    console.log stdout + stderr
+  exec 'cp -R -f /Users/franzseo/dev/laloli/css /Users/franzseo/dev/franzenzenhofer.github.com/', (err, stdout, stderr) ->
     throw err if err
     console.log stdout + stderr
