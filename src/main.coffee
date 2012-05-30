@@ -1,5 +1,7 @@
 INTRO_STRING = 'Please enter your message.'
 
+short_url_visible = false
+
 checksum = (string) ->
     chk = 0
     for i, chr of string
@@ -14,6 +16,8 @@ toHash = (input) ->
   if(window.location.search or window.location.search isnt '')
     history.pushState({}, "", "/");
   window.location.hash = encoded
+  #side effect to hide the short url
+  if short_url_visible is true then $('#shorturl').fadeOut()
   return true
 
 showError = (msg) ->
@@ -124,7 +128,10 @@ $ ->
     $("#gplus").on('click', ()-> @href='https://plus.google.com/share?url=http://www.lalo.li/?'+encodeURIComponent(window.location.hash[1...] or window.location.search[1...]))
     #https://www.facebook.com/sharer.php?u=[URL]&t=[TEXT]
     $("#facebook").on('click', ()-> @href='https://www.facebook.com/sharer.php?u=http://www.lalo.li/?'+encodeURIComponent(window.location.hash[1...] or window.location.search[1...])+'&t='+encodeURIComponent('Voice Message'))
-
+    $('#bitly').on('click', ()->
+      $.getJSON('http://api.bit.ly/v3/shorten?login=laloli&&apiKey=R_f29b99469604b70e8c5898e05ec09daa&longUrl=http://www.lalo.li/?'+encodeURIComponent(window.location.hash[1...] or window.location.search[1...])+'&format=json&callback=?', ((response )-> if response?.data?.url then short_url_visible=true; $('#shorturl').fadeOut().fadeIn().html('Short-URL: <a target="_blank" href="'+response.data.url+'">'+response.data.url+'</a>')) )
+      return false
+      )
     )
 
 
