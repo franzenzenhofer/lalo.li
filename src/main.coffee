@@ -14,8 +14,11 @@ toHash = (input) ->
   check = checksum base64
   encoded = base64 + check
   if(window.location.search or window.location.search isnt '')
-    history.pushState({}, "", "/");
-  window.location.hash = encoded
+    history.replaceState?({}, "", "/");
+  if history.replaceState
+    history.replaceState?({}, "", "/#"+encoded);
+  else
+    window.location.hash = encoded
   #side effect to hide the short url
   if short_url_visible is true then $('#shorturl').fadeOut()
   return true
