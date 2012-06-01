@@ -68,7 +68,9 @@ input:focus, textarea:focus {
 
   #text {margin-top: 1px; margin-bottom: 15px; max-width: 480px; min-width: 200px; width:90%;}
   
-  h1 {margin-top: 15px;} 
+  h1 {margin-top: 15px; text-shadow: 2px 2px 2px lightgray; text-decoration:none;}
+  h1 a { text-decoration:none; }
+  h2 {text-shadow:  2px 2px 2px lightgray;}
   .la { color:blue; }
   .lo { color:green; }
   .dot { color:FireBrick; }
@@ -196,7 +198,7 @@ var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-20774200-1"]);_gaq.push(["_trackP
 </head>
 <body>
   <center>
-  <h1><span class="la">La</span><span class='lo'>lo</span><span class='dot'>.</span><span class='li'>li</span></h1>
+  <h1><a href="http://lalo.li/"><span class="la">La</span><span class='lo'>lo</span><span class='dot'>.</span><span class='li'>li</span></a></h1>
   <h2>Short Voice Message Service</h2>
   <form noonsubmit="return false;" id="speak"> 
     <div id="text_controll"><input type="text" name="text" id="text" value="" maxlength="140" ><input type="submit" value="▶"><!--♫--></div>
@@ -234,7 +236,7 @@ var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-20774200-1"]);_gaq.push(["_trackP
     <script type="text/javascript" src="lib/vendor/rawinflate.js" async></script>
     <script type="text/javascript" src="lib/vendor/rawdeflate.js" async></script>
   <script src="lib/main.js?v=270520122151"></script>-->
-  <script src="lib/min.js"></script>
+  <script src="lib/min.js?v=01062012"></script>
   
 </body>
 </html>
