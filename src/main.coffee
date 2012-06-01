@@ -110,7 +110,7 @@ $ ->
 
     #EVENT HANDLERS
     $('#speak').on('submit', (e)->
-      console.log('submit')
+      #console.log('submit')
       try
         saySo()
       catch error
@@ -121,6 +121,20 @@ $ ->
       )
 
     $('#text').on('keyup', ((e)->makeSpeakHash()))
+
+    $('#text').on('webkitspeechchange',((e)->
+        e.stopPropagation()
+        makeSpeakHash()
+        saySo()
+      )
+    )
+
+    $('body').on('speechchange',((e)->
+        e.stopPropagation()
+        makeSpeakHash()
+        saySo()
+      )
+    )
 
     #attaching an event handler to the dials is a little bit more complicated
     $(".dial").trigger('configure', {'release':((v,ipt) ->makeSpeakHash();console.log('release in dial'))})
@@ -135,6 +149,7 @@ $ ->
       $.getJSON('http://api.bit.ly/v3/shorten?login=laloli&&apiKey=R_f29b99469604b70e8c5898e05ec09daa&longUrl=http://www.lalo.li/?'+encodeURIComponent(window.location.hash[1...] or window.location.search[1...])+'&format=json&callback=?', ((response )-> if response?.data?.url then short_url_visible=true; $('#shorturl').fadeOut().fadeIn().html('Short-URL: <a target="_blank" href="'+response.data.url+'">'+response.data.url+'</a>')) )
       return false
       )
+
     )
 
 
